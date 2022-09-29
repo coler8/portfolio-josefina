@@ -10,7 +10,8 @@
     "dev:ssr": "ng run portfolio-josefina:serve-ssr",
     "serve:ssr": "node dist/portfolio-josefina/server/main.js",
     "build:ssr": "ng build && ng run portfolio-josefina:server",
-    "prerender": "ng run portfolio-josefina:prerender"
+    "prerender": "ng run portfolio-josefina:prerender",
+    "deploy": "ng build --configuration production --aot && ng run portfolio-josefina:server && firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +19,7 @@
     "@angular/common": "^14.1.0",
     "@angular/compiler": "^14.1.0",
     "@angular/core": "^14.1.0",
+    "@angular/fire": "^7.4.1",
     "@angular/forms": "^14.1.0",
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
@@ -28,6 +30,7 @@
     "firebase": "^9.9.4",
     "ngx-cookie-service": "^14.0.1",
     "rxjs": "~7.5.0",
+    "t-writer.js": "^1.0.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

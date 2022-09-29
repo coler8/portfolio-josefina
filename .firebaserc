@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "portfolio-josefina": {
+      "hosting": {
+        "portfolio-josefina": [
+          "portfolio-josefina"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "portfolio-josefina"
+  }
+}

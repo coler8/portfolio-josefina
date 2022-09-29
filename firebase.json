@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/portfolio-josefina/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

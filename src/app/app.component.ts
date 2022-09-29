@@ -20,8 +20,6 @@ export class AppComponent implements OnInit {
     private meta: Meta,
     private seoService: SeoService,
   ) {
-    this.cookieService.set('myCookie', 'Hello World');
-    this.cookieService.get('myCookie');
 
     this.meta.addTags([
       { name: 'author', content: 'josefinaogr' },

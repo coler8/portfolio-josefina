@@ -6,6 +6,11 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
     component: HomeComponent,
     // loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
     data: {
@@ -26,7 +31,7 @@ const routes: Routes = [
       keywords: 'about'
     }
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'home' },
 
 ];
 
