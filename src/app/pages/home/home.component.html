@@ -1,261 +1,352 @@
-<body class="w3-black">
+<!-- padding para la card sm:lg:p-24 -->
 
-    <!-- Icon Bar (Sidebar - hidden on small screens) -->
-    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-        <!-- Avatar image in top left corner  [routerLink]="['/about-me']" -->
-        <a class="w3-bar-item w3-button w3-padding-large w3-black">
-            <i class="fa fa-home w3-xxlarge"></i>
-            <p>HOME</p>
-        </a>
-        <a href="/about-me" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-            <i class="fa fa-user w3-xxlarge"></i>
-            <p>ABOUT</p>
-        </a>
-        <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-            <i class="fa fa-eye w3-xxlarge"></i>
-            <p>PHOTOS</p>
-        </a>
-        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-            <i class="fa fa-envelope w3-xxlarge"></i>
-            <p>CONTACT</p>
-        </a>
-    </nav>
+<div id="navbar" (scroll)="onScroll($event)"
+    class="top-0 z-50 rounded-lg w-full h-full md:flex items-center bg-gradient-to-r from-sky-500 to-indigo-500 shadow-xl">
+    <div id="image-josefina" class="relative w-full h-full md:w-2/5">
 
-    <!-- Navbar on small screens (Hidden on medium and large screens) -->
-    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-        <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-            <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-            <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-            <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-            <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+        <!-- <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-sky-500 to-indigo-500"></div> -->
+        <div class="inline-grid items-center justify-center inset-0 w-full h-full">
+            <img class="rounded-lg " style="border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% "
+                src="https://media-exp1.licdn.com/dms/image/C4E03AQH0Q3lu9DV5hA/profile-displayphoto-shrink_200_200/0/1656104877935?e=1669248000&v=beta&t=vYNFDHdzRHLLYg56tWXvJwKjyVJ5DvJqy6fXFEXyI1k"
+                alt="fisio_face" />
+            <div class="w-full bottom-20 text-center ">
+
+                <button
+                    class="m-2 w-10 h-10 inline-flex justify-center items-center hover:shadow-lg shadow-sm rounded-full bg-[#4267B2] text-white">
+                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M16.403,9H14V7c0-1.032,0.084-1.682,1.563-1.682h0.868c0.552,0,1-0.448,1-1V3.064c0-0.523-0.401-0.97-0.923-1.005C15.904,2.018,15.299,1.999,14.693,2C11.98,2,10,3.657,10,6.699V9H8c-0.552,0-1,0.448-1,1v2c0,0.552,0.448,1,1,1l2-0.001V21c0,0.552,0.448,1,1,1h2c0.552,0,1-0.448,1-1v-8.003l2.174-0.001c0.508,0,0.935-0.381,0.993-0.886l0.229-1.996C17.465,9.521,17.001,9,16.403,9z" />
+                    </svg>
+                </button>
+
+
+                <button
+                    class="m-2 w-10 h-10 inline-flex justify-center items-center hover:shadow-lg shadow-sm rounded-full bg-[#25D366] text-white">
+                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                    </svg>
+                </button>
+
+                <button
+                    class="m-2 w-10 h-10 inline-flex justify-center items-center hover:shadow-lg shadow-sm rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white">
+                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </button>
+
+                <button
+                    class="m-2 w-10 h-10 inline-flex justify-center items-center hover:shadow-lg shadow-sm rounded-full bg-gray-500 text-white">
+                    <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z" />
+                    </svg>
+                </button>
+
+            </div>
         </div>
-    </div>
-
-    <!-- Page Content -->
-    <div class="w3-padding-large" id="main">
-        <!-- Header/Home -->
-        <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-            <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Josefina.</h1>
-            <p>Fisioterapeuta.</p>
-            <img src="https://cdn.shopify.com/s/files/1/0274/1783/7625/files/collaboration_team_1903x500_crop_center.jpg?v=1657474189%201.00x"
-                alt="boy" class="w3-image" width="992" height="1108">
-        </header>
-
-        <!-- About Section -->
-        <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-            <h2 class="w3-text-light-grey">My Name</h2>
-            <hr style="width:200px" class="w3-opacity">
-            <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
-            <p class="w3-wide">Photography</p>
-            <div class="w3-white">
-                <div class="w3-dark-grey" style="height:28px;width:95%"></div>
-            </div>
-            <p class="w3-wide">Web Design</p>
-            <div class="w3-white">
-                <div class="w3-dark-grey" style="height:28px;width:85%"></div>
-            </div>
-            <p class="w3-wide">Photoshop</p>
-            <div class="w3-white">
-                <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-            </div><br>
-
-            <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-                <div class="w3-quarter w3-section">
-                    <span class="w3-xlarge">11+</span><br>
-                    Partners
-                </div>
-                <div class="w3-quarter w3-section">
-                    <span class="w3-xlarge">55+</span><br>
-                    Projects Done
-                </div>
-                <div class="w3-quarter w3-section">
-                    <span class="w3-xlarge">89+</span><br>
-                    Happy Clients
-                </div>
-                <div class="w3-quarter w3-section">
-                    <span class="w3-xlarge">150+</span><br>
-                    Meetings
-                </div>
-            </div>
-
-            <button class="w3-button w3-light-grey w3-padding-large w3-section">
-                <i class="fa fa-download"></i> Download Resume
-            </button>
-
-            <!-- Grid for pricing tables -->
-            <h3 class="w3-padding-16 w3-text-light-grey">My Price</h3>
-            <div class="w3-row-padding" style="margin:0 -16px">
-                <div class="w3-half w3-margin-bottom">
-                    <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-                        <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-                        <li class="w3-padding-16">Web Design</li>
-                        <li class="w3-padding-16">Photography</li>
-                        <li class="w3-padding-16">5GB Storage</li>
-                        <li class="w3-padding-16">Mail Support</li>
-                        <li class="w3-padding-16">
-                            <h2>$ 10</h2>
-                            <span class="w3-opacity">per month</span>
-                        </li>
-                        <li class="w3-light-grey w3-padding-24">
-                            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="w3-half">
-                    <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-                        <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
-                        <li class="w3-padding-16">Web Design</li>
-                        <li class="w3-padding-16">Photography</li>
-                        <li class="w3-padding-16">50GB Storage</li>
-                        <li class="w3-padding-16">Endless Support</li>
-                        <li class="w3-padding-16">
-                            <h2>$ 25</h2>
-                            <span class="w3-opacity">per month</span>
-                        </li>
-                        <li class="w3-light-grey w3-padding-24">
-                            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Grid/Pricing tables -->
-            </div>
-
-            <!-- Testimonials -->
-            <h3 class="w3-padding-24 w3-text-light-grey">My Reputation</h3>
-            <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar"
-                class="w3-left w3-circle w3-margin-right" style="width:80px">
-            <p><span class="w3-large w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>
-            <p>John Doe saved us from a web disaster.</p><br>
-
-            <img src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="Avatar"
-                class="w3-left w3-circle w3-margin-right" style="width:80px">
-            <p><span class="w3-large w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
-            <p>No one is better than John Doe.</p>
-            <!-- End About Section -->
-        </div>
-
-        <!-- Portfolio Section -->
-        <div class="w3-padding-64 w3-content" id="photos">
-            <h2 class="w3-text-light-grey">My Photos</h2>
-            <hr style="width:200px" class="w3-opacity">
-
-            <!-- Grid for photos -->
-            <div class="w3-row-padding" style="margin:0 -16px">
-                <div class="w3-half">
-                    <img src="https://www.w3schools.com/w3images/wedding.jpg" style="width:100%">
-                    <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
-                    <img src="https://www.w3schools.com/w3images/sailboat.jpg" style="width:100%">
-                </div>
-
-                <div class="w3-half">
-                    <img src="https://www.w3schools.com/w3images/underwater.jpg" style="width:100%">
-                    <img src="https://www.w3schools.com/w3images/chef.jpg" style="width:100%">
-                    <img src="https://www.w3schools.com/w3images/wedding.jpg" style="width:100%">
-                    <img src="https://www.w3schools.com/w3images/p6.jpg" style="width:100%">
-                </div>
-                <!-- End photo grid -->
-            </div>
-            <!-- End Portfolio Section -->
-        </div>
-
-        <!-- Contact Section -->
-        <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-            <h2 class="w3-text-light-grey">Contact Me</h2>
-            <hr style="width:200px" class="w3-opacity">
-
-            <div class="w3-section">
-                <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-                <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-                <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com
-                </p>
-            </div><br>
-            <p>Let's get in touch. Send me a message:</p>
-
-            <form action="/action_page.php" target="_blank">
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-                <p>
-                    <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-                        <i class="fa fa-paper-plane"></i> SEND MESSAGE
-                    </button>
-                </p>
-            </form>
-            <!-- End Contact Section -->
-        </div>
-
-        <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
-        <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-            <i class="fa fa-facebook-official w3-hover-opacity"></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
-            <i class="fa fa-snapchat w3-hover-opacity"></i>
-            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-            <i class="fa fa-twitter w3-hover-opacity"></i>
-            <i class="fa fa-linkedin w3-hover-opacity"></i>
-            <p class="w3-small">This website was made with W3schools Spaces. Make your own free website today!</p>
-            <a class="w3-button w3-round-xxlarge w3-small w3-light-grey" href="https://www.w3schools.com/spaces"
-                target="_blank">Start now</a>
-            <!-- End footer -->
-        </footer>
-
-        <!-- END PAGE CONTENT -->
-    </div>
-
-</body>
-
-<!-- <div class="content" role="main">
-
-    <div class="card highlight-card card-small">
-
-        <svg id="rocket" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678"
-            viewBox="0 0 101.678 101.678">
-            <title>Rocket Ship</title>
-            <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
-                <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839"
-                    transform="translate(141 696)" fill="#dd0031" />
-                <g id="Group_47" data-name="Group 47" transform="translate(165.185 720.185)">
-                    <path id="Path_33" data-name="Path 33"
-                        d="M3.4,42.615a3.084,3.084,0,0,0,3.553,3.553,21.419,21.419,0,0,0,12.215-6.107L9.511,30.4A21.419,21.419,0,0,0,3.4,42.615Z"
-                        transform="translate(0.371 3.363)" fill="#fff" />
-                    <path id="Path_34" data-name="Path 34"
-                        d="M53.3,3.221A3.09,3.09,0,0,0,50.081,0,48.227,48.227,0,0,0,18.322,13.437c-6-1.666-14.991-1.221-18.322,7.218A33.892,33.892,0,0,1,9.439,25.1l-.333.666a3.013,3.013,0,0,0,.555,3.553L23.985,43.641a2.9,2.9,0,0,0,3.553.555l.666-.333A33.892,33.892,0,0,1,32.647,53.3c8.55-3.664,8.884-12.326,7.218-18.322A48.227,48.227,0,0,0,53.3,3.221ZM34.424,9.772a6.439,6.439,0,1,1,9.106,9.106,6.368,6.368,0,0,1-9.106,0A6.467,6.467,0,0,1,34.424,9.772Z"
-                        transform="translate(0 0.005)" fill="#fff" />
-                </g>
-            </g>
-        </svg>
-
-        <span>{{ title }} app is running!</span>
-
-        <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632"
-            viewBox="0 0 516.119 1083.632">
-            <title>Rocket Ship Smoke</title>
-            <path id="Path_40" data-name="Path 40"
-                d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z"
-                transform="translate(-147.025 -140.939)" fill="#f5f5f5" />
-        </svg>
 
     </div>
+    <div id="rigth-section" class="w-full items-center rounded-lg">
+        <div class="p-12 md:pr-24 md:pl-16 md:py-12">
+            <div id="name-josefina">
+                <p class="text-center text-3xl font-bold">Josefina Garcia</p>
+                <p class="text-center text-lg font-bold pb-6">FISIOTERAPEUTA</p>
+            </div>
 
 
+            <div id="menu-buttons" class="flex flex-col space-y-4">
+                <button (click)="scrollToElement(about)"
+                    class="botoncito bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                    Sobre mi
+                </button>
+                <button
+                    class="botoncito bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                    ¿En que puedo ayudarte?
+                </button>
+                <button
+                    class="botoncito bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                    Blog
+                </button>
+                <button
+                    class="botoncito bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                    Contacto
+                </button>
+                <button
+                    class="botoncito bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                    Tarifas
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- sobre mi -->
+
+<div #about class="relative my-16 text-lg text-center">
+    <p><b>Sobre mi</b></p>
+    <p>Scroll down this frame to see the effect!</p>
+    <p>Scroll to the top to remove the effect.</p>
+    <p><b>Note:</b> We have also made the navbar responsive, resize the browser window to see the effect.</p>
+    <p>Lorem ipsum dolor dummy text to enable scrolling, sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.</p>
+</div>
+
+<!-- tarifas -->
 
 
-    <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
-        viewBox="0 0 2611.084 485.677">
-        <title>Gray Clouds Background</title>
-        <path id="Path_39" data-name="Path 39"
-            d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
-            transform="translate(142.69 -634.312)" fill="#eee" />
-    </svg>
+<div #hello class="container my-24 px-6 mx-auto">
 
-</div> -->
+    <!-- Section: Design Block -->
+    <section class="mb-32 text-gray-800">
+        <style>
+            #pricing-block-5 {
+                height: 300px;
+                padding-top: 55px;
+            }
+
+            @media (min-width: 992px) {
+                #pricing-block-5 {
+                    height: 400px;
+                    padding-top: 80px;
+                }
+            }
+
+            .background-radial-gradient {
+                background-color: hsl(218, 41%, 15%);
+                background-image: radial-gradient(650px circle at 0% 0%,
+                        hsl(218, 41%, 35%) 15%,
+                        hsl(218, 41%, 30%) 35%,
+                        hsl(218, 41%, 20%) 75%,
+                        hsl(218, 41%, 19%) 80%,
+                        transparent 100%),
+                    radial-gradient(1250px circle at 100% 100%,
+                        hsl(218, 41%, 45%) 15%,
+                        hsl(218, 41%, 30%) 35%,
+                        hsl(218, 41%, 20%) 75%,
+                        hsl(218, 41%, 19%) 80%,
+                        transparent 100%);
+            }
+        </style>
+
+        <div id="pricing-block-5" class="background-radial-gradient text-center text-white">
+            <h2 class="text-3xl font-bold text-center mb-12">Pricing</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-3 px-6 md:px-12 xl:px-32" style="margin-top: -200px">
+            <div class="p-0 py-12">
+                <div class="block rounded-lg shadow-lg bg-white h-full lg:rounded-tr-none lg:rounded-br-none">
+                    <div class="p-6 border-b border-gray-300 text-center">
+                        <p class="uppercase mb-4 text-sm">
+                            <strong>Basic</strong>
+                        </p>
+                        <h3 class="text-2xl mb-6">
+                            <strong>$ 129</strong>
+                            <small class="text-gray-500 text-sm">/year</small>
+                        </h3>
+
+                        <button type="button"
+                            class="inline-block px-6 py-2.5 bg-transparent text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:text-blue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out w-full"
+                            style="background-color: hsl(0, 0%, 95%)" data-mdb-ripple="true"
+                            data-ripple-color="primary">
+                            Buy
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <ol class="list-inside">
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Unlimited updates
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Git repository
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>npm installation
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-0">
+                <div class="block rounded-lg shadow-lg bg-white h-full z-10">
+                    <div class="p-6 border-b border-gray-300 text-center">
+                        <p class="uppercase mb-4 text-sm">
+                            <strong>Enterprise</strong>
+                        </p>
+                        <h3 class="text-2xl mb-6">
+                            <strong>$ 499</strong>
+                            <small class="text-gray-500 text-sm">/year</small>
+                        </h3>
+
+                        <button type="button"
+                            class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full">
+                            Buy
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <ol class="list-inside">
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Unlimited updates
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Git repository
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>npm installation
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Code examples
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Premium snippets
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Premium support
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Drag&amp;Drop builder
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-0 py-12">
+                <div class="block rounded-lg shadow-lg bg-white h-full lg:rounded-tl-none lg:rounded-bl-none">
+                    <div class="p-6 border-b border-gray-300 text-center">
+                        <p class="uppercase mb-4 text-sm">
+                            <strong>Advanced</strong>
+                        </p>
+                        <h3 class="text-2xl mb-6">
+                            <strong>$ 299</strong>
+                            <small class="text-gray-500 text-sm">/year</small>
+                        </h3>
+
+                        <button type="button"
+                            class="inline-block px-6 py-2.5 bg-transparent text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:text-blue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out w-full"
+                            style="background-color: hsl(0, 0%, 95%)" data-mdb-ripple="true"
+                            data-ripple-color="primary">
+                            Buy
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <ol class="list-inside">
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Unlimited updates
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Git repository
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>npm installation
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Code examples
+                            </li>
+                            <li class="mb-4 flex items-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+                                    class="text-green-600 w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                                    </path>
+                                </svg>Premium snippets
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: Design Block -->
+
+</div>

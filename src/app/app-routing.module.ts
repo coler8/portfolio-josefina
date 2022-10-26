@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AboutMeComponent } from './pages/about-me/about-me.component';
-import { HomeComponent } from './pages/home/home.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -11,8 +9,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent,
-    // loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+    // component: HomeComponent,
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
     data: {
       title: 'Bienvenido a Papel Pandemia',
       description: 'Página web relacionada con el papel higiénico, mapa con el consumo de papel higiénico en España. Memes y mucho más. Entra y pasa un rato divertido!',
@@ -22,8 +20,8 @@ const routes: Routes = [
   },
   {
     path: 'about-me',
-    component: AboutMeComponent,
-    // loadChildren: () => import('./pages/about-me/about-me.module').then(m => m.AboutMeModule),
+    // component: AboutMeComponent,
+    loadChildren: () => import('./pages/about-me/about-me.module').then(m => m.AboutMeModule),
     data: {
       title: 'Sobre nosotros',
       description: 'Papel Pandemia es una pagina web diseñada para divertir y entretener a la gente. Las mejores e interesantes noticias en cuanto a papel, sobre la casa de papel y además memtes y retos/challenges.',
@@ -36,9 +34,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
-  })],
+  imports: [
+    RouterModule.forRoot(
+      routes,
+      { useHash: false, preloadingStrategy: PreloadAllModules, initialNavigation: 'enabledBlocking', anchorScrolling: 'enabled' }
+    )
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
