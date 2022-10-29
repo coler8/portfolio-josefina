@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'home',
     // component: HomeComponent,
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+    loadChildren: () => import('./modules/pages/home/home.module').then(m => m.HomeModule),
     data: {
       title: 'Portfolio Josefina',
       description: 'Página web relacionada con el fisioterapia, mapa con el consumo de fisioterapia en España. Memes y mucho más. Entra y pasa un rato divertido!',
@@ -43,7 +43,7 @@ const routes: Routes = [
   {
     path: 'prices',
     // component: HomeComponent,
-    loadChildren: () => import('./pages/prices/prices.module').then(m => m.PricesModule),
+    loadChildren: () => import('./modules/pages/prices/prices.module').then(m => m.PricesModule),
     data: {
       title: 'Portfolio Josefina',
       description: 'Página web relacionada con el fisioterapia, mapa con el consumo de fisioterapia en España. Memes y mucho más. Entra y pasa un rato divertido!',

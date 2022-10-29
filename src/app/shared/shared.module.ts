@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
-import { HeaderComponent } from "./header/header.component";
 import { RouterModule } from '@angular/router';
-import { FooterComponent } from "./footer/footer.component";
-import { WaveComponent } from "./wave/wave.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { WaveComponent } from "./components/wave/wave.component";
 
 
 @NgModule({
