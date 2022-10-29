@@ -79,6 +79,7 @@
                             class="botoncito bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
                             Tarifas
                         </button>
+
                     </div>
                 </div>
             </div>
@@ -86,37 +87,165 @@
     </header>
     <nav *ngIf="showStickyBar" id="sticky-bar"
         class="w-full fixed md:sticky sm:fixed top-0 z-50 bg-[url('./assets/images/fondo.jpg')] bg-cover p-5 drop-shadow shadow-blue-600 animate__animated animate__fadeInDown">
-        <ul class="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-8 cursor-pointer">
+        <ul class="grid grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-4 lg:gap-8 whitespace-nowrap cursor-pointer">
             <li>
-                <a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white"
-                    (click)="scrollToElement(about)">Sobre mi</a>
+                <button (click)="scrollToElement(about)"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                    <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        Sobre mi
+                    </span>
+                </button>
             </li>
             <li>
-                <a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white"
-                    (click)="scrollToElement(help)">Contacto</a>
+                <button (click)="scrollToElement(help)"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                    <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        Tarifas
+                    </span>
+                </button>
             </li>
             <li>
-                <a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white"
-                    (click)="scrollToElement(tarifas)">Blog</a>
+                <button (click)="scrollToElement(blog)"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                    <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        Tarifas
+                    </span>
+                </button>
             </li>
             <li>
-                <a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white"
-                    (click)="scrollToElement(blog)">Tarifas</a>
+                <button (click)="scrollToElement(blog)"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                    <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        Tarifas
+                    </span>
+                </button>
             </li>
 
             <li>
-                <a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white"
-                    (click)="scrollToElement(blog)">Redes</a>
+                <button
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                    <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        Redes
+                    </span>
+                </button>
             </li>
 
         </ul>
     </nav>
 
-    <section #about id="about-div"
-        class="containerdiv text-lg text-center animate__animated animate__fadeIn animate__slow">
+    <section>
+        <div class="bg-white shadow">
+            <div class="mx-auto max-w-7xl mt-8 py-6 px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl text-center font-bold tracking-tight drop-shadow-lg shadow-black">Dashboard</h1>
+            </div>
+        </div>
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <div class="px-4 sm:px-0">
+                <div class="bg-white py-12">
+                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div class="lg:text-center">
+                            <h2 class="text-lg font-semibold text-indigo-600">Transactions</h2>
+                            <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                                A better way to send money</p>
+                            <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Lorem ipsum dolor sit
+                                amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis
+                                in accusamus quisquam.</p>
+                        </div>
 
+                        <div class="mt-10">
+                            <dl class="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
+                                <div class="relative">
+                                    <dt>
+                                        <div
+                                            class="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
+                                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-16 text-lg font-medium leading-6 text-gray-900">Competitive
+                                            exchange rates</p>
+                                    </dt>
+                                    <dd class="mt-2 ml-16 text-base text-gray-500">Lorem ipsum, dolor sit amet
+                                        consectetur adipisicing elit. Maiores impedit perferendis suscipit
+                                        eaque, iste dolor cupiditate blanditiis ratione.</dd>
+                                </div>
+
+                                <div class="relative">
+                                    <dt>
+                                        <div
+                                            class="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
+                                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-16 text-lg font-medium leading-6 text-gray-900">No hidden
+                                            fees</p>
+                                    </dt>
+                                    <dd class="mt-2 ml-16 text-base text-gray-500">Lorem ipsum, dolor sit amet
+                                        consectetur adipisicing elit. Maiores impedit perferendis suscipit
+                                        eaque, iste dolor cupiditate blanditiis ratione.</dd>
+                                </div>
+
+                                <div class="relative">
+                                    <dt>
+                                        <div
+                                            class="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
+                                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-16 text-lg font-medium leading-6 text-gray-900">Transfers
+                                            are instant</p>
+                                    </dt>
+                                    <dd class="mt-2 ml-16 text-base text-gray-500">Lorem ipsum, dolor sit amet
+                                        consectetur adipisicing elit. Maiores impedit perferendis suscipit
+                                        eaque, iste dolor cupiditate blanditiis ratione.</dd>
+                                </div>
+
+                                <div class="relative">
+                                    <dt>
+                                        <div
+                                            class="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
+                                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                                            </svg>
+                                        </div>
+                                        <p class="ml-16 text-lg font-medium leading-6 text-gray-900">Mobile
+                                            notifications</p>
+                                    </dt>
+                                    <dd class="mt-2 ml-16 text-base text-gray-500">Lorem ipsum, dolor sit amet
+                                        consectetur adipisicing elit. Maiores impedit perferendis suscipit
+                                        eaque, iste dolor cupiditate blanditiis ratione.</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section #about id="about-div">
         <app-about-me></app-about-me>
-
     </section>
 
     <div class="m-16">
@@ -146,20 +275,7 @@
     </div>
 
     <section #tarifas class="containerdiv mb-16 text-lg text-center animate__animated animate__fadeInUp">
-        <h1 class="text-center text-4xl font-bold drop-shadow-lg shadow-black mb-20">tarifas</h1>
-
-        <p>Scroll down this frame to see the effect!</p>
-        <p>Scroll to the top to remove the effect.</p>
-        <p><b>Note:</b> We have also made the navbar responsive, resize the browser window to see the effect.</p>
-        <p>Lorem ipsum dolor dummy text to enable scrolling, sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia
-            deserunt mollit anim id est laborum.</p>
+        <app-contact></app-contact>
     </section>
 
     <div class="m-16">
@@ -171,98 +287,14 @@
 
 
         <section class="relative pt-16 bg-blueGray-50">
-            <div class="container mx-auto">
-                <div class="flex flex-wrap items-center">
-                    <div class="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-78">
-                        <div
-                            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-500">
-                            <img alt="..."
-                                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=700&amp;q=80"
-                                class="w-full align-middle rounded-t-lg">
-                            <blockquote class="relative p-8 mb-4">
-                                <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95"
-                                    class="absolute left-0 w-full block h-95-px -top-94-px">
-                                    <polygon points="-30,95 583,95 583,65" class="text-pink-500 fill-current">
-                                    </polygon>
-                                </svg>
-                                <h4 class="text-xl font-bold text-white">
-                                    Great for your awesome project
-                                </h4>
-                                <p class="text-md font-light mt-2 text-white">
-                                    Putting together a page has never been easier than matching
-                                    together pre-made components. From landing pages presentation
-                                    to login areas, you can easily customise and built your pages.
-                                </p>
-                            </blockquote>
-                        </div>
-                    </div>
+            añadir
 
-                    <div class="w-full md:w-6/12 px-4">
-                        <div class="flex flex-wrap">
-                            <div class="w-full md:w-6/12 px-4">
-                                <div class="relative flex flex-col mt-4">
-                                    <div class="px-4 py-5 flex-auto">
-                                        <div
-                                            class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                                            <i class="fas fa-sitemap"></i>
-                                        </div>
-                                        <h6 class="text-xl mb-1 font-semibold">CSS Components</h6>
-                                        <p class="mb-4 text-blueGray-500">
-                                            Notus JS comes with a huge number of Fully Coded CSS
-                                            components.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="relative flex flex-col min-w-0">
-                                    <div class="px-4 py-5 flex-auto">
-                                        <div
-                                            class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                                            <i class="fas fa-drafting-compass"></i>
-                                        </div>
-                                        <h6 class="text-xl mb-1 font-semibold">
-                                            JavaScript Components
-                                        </h6>
-                                        <p class="mb-4 text-blueGray-500">
-                                            We also feature many dynamic components for React, NextJS,
-                                            Vue and Angular.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full md:w-6/12 px-4">
-                                <div class="relative flex flex-col min-w-0 mt-4">
-                                    <div class="px-4 py-5 flex-auto">
-                                        <div
-                                            class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                                            <i class="fas fa-newspaper"></i>
-                                        </div>
-                                        <h6 class="text-xl mb-1 font-semibold">Pages</h6>
-                                        <p class="mb-4 text-blueGray-500">
-                                            This extension also comes with 3 sample pages. They are
-                                            fully coded so you can start working instantly.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="relative flex flex-col min-w-0">
-                                    <div class="px-4 py-5 flex-auto">
-                                        <div
-                                            class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                                            <i class="fas fa-file-alt"></i>
-                                        </div>
-                                        <h6 class="text-xl mb-1 font-semibold">Documentation</h6>
-                                        <p class="mb-4 text-blueGray-500">
-                                            Built by developers for developers. You will love how easy
-                                            is to to work with Notus JS.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </section>
+    </section>
+
+    <section>
+        <app-prices></app-prices>
     </section>
 
     <footer class="h-96 p-20 bg-red-600">
