@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from "./components/footer/footer.component";
@@ -13,6 +14,7 @@ import { WaveComponent } from "./components/wave/wave.component";
   ],
   imports: [
     RouterModule,
+    CommonModule
   ],
   exports: [
     HeaderComponent,

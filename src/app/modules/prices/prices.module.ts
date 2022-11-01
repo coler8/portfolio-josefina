@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { AboutMeComponent } from '../about-me/about-me.component';
-import { ContactComponent } from '../contact/contact.component';
-import { PricesComponent } from './prices.component';
+import { PricesComponent } from './page/prices.component';
 
 @NgModule({
   declarations: [
-    // PricesComponent,
+    PricesComponent,
   ],
   imports: [
     CommonModule,

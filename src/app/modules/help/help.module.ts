@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HelpComponent } from './page/help.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { HomeComponent } from './pages/home.component';
+
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    HelpComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: HomeComponent
+        component: HelpComponent
       }
     ]),
     SharedModule
   ],
   exports: [RouterModule]
+
 })
-export class HomeModule { }
+export class HelpModule { }

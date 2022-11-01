@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { inOutAnimation } from 'src/app/core/animations/enter-leave.animation';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isOpen: boolean = false;
   links: any = [
     {
       src: 'https://www.youtube.com/leifermendez',
@@ -25,6 +27,12 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  toggleNavbar() {
+    const targetEl = document.getElementById('navbar-sticky');
+    targetEl?.classList.remove('hidden');
+
   }
 
 }
