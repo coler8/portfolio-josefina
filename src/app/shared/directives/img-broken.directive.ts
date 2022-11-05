@@ -1,17 +1,13 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appImgBroken]'
+  selector: 'img[onError]',
 })
-export class ImgBrokenDirective {
-  @HostListener('error') handleError(){
+export class OnImageErrorDirective {
+  constructor(private el: ElementRef) { }
 
-    const element = this.elHost.nativeElement;
-    element.src = 'https://m.media-amazon.com/images/I/61FQCSP7ZIL._SS500_.jpg'
-
-    console.log('Algo sucedio 🤔');
+  @HostListener('error')
+  private onError() {
+    this.el.nativeElement.src = '/assets/images/imagen_default.jpg';
   }
-
-  constructor(private elHost:ElementRef) { }
-
 }
