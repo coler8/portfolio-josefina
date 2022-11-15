@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { inOutAnimation } from 'src/app/core/animations/enter-leave.animation';
+import { RouteUrls } from 'src/app/core/models/enums/route-urls.enum';
+import { HeaderLinkI } from 'src/app/core/models/header.model';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +23,33 @@ export class HeaderComponent implements OnInit {
       src: 'mailto:leifer33@gmail.com',
       name: 'Contacto'
     }
+  ];
+
+  public pages: HeaderLinkI[] = [
+    {
+      routerlink: RouteUrls.home,
+      name: 'Home'
+    },
+    {
+      routerlink: RouteUrls.contact,
+      name: 'Contacto'
+    },
+    {
+      routerlink: RouteUrls.aboutme,
+      name: 'Sobre mi'
+    },
+    {
+      routerlink: RouteUrls.blog,
+      name: 'Blog'
+    },
+    {
+      routerlink: RouteUrls.help,
+      name: 'Ayudarte'
+    },
+    {
+      routerlink: RouteUrls.prices,
+      name: 'Tarifas'
+    },
   ];
 
   constructor() {

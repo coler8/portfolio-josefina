@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AddPostComponent } from './modules/admin/components/add-post/add-post.component';
+import { AdminComponent } from './modules/admin/page/admin.component';
 
 const routes: Routes = [
   {
@@ -82,6 +84,16 @@ const routes: Routes = [
     loadChildren: () => import('./modules/conditions/conditions.module').then(m => m.ConditionsModule),
     data: {
       title: 'Blog Josefina',
+      description: 'Página web relacionada con el fisioterapia, mapa con el consumo de fisioterapia en España. Memes y mucho más. Entra y pasa un rato divertido!',
+      ogUrl: 'https://fisiopandemia.es',
+      keywords: 'Angular, fisioterapia, Pandemia,mandibula, fisio coronavirus, Mapa de España, como hacer mandibula, españa coronavirus, retos fisiotteriapia, toilet paper challenge'
+    }
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+    data: {
+      title: 'Admin',
       description: 'Página web relacionada con el fisioterapia, mapa con el consumo de fisioterapia en España. Memes y mucho más. Entra y pasa un rato divertido!',
       ogUrl: 'https://fisiopandemia.es',
       keywords: 'Angular, fisioterapia, Pandemia,mandibula, fisio coronavirus, Mapa de España, como hacer mandibula, españa coronavirus, retos fisiotteriapia, toilet paper challenge'

@@ -2,22 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { HomeComponent } from './page/home.component';
+import { AdminComponent } from './page/admin.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
+
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: HomeComponent
+        component: AdminComponent
+      },
+      {
+        path: 'add-post',
+        component: AddPostComponent
       }
     ]),
     SharedModule
   ],
   exports: [RouterModule]
+
 })
-export class HomeModule { }
+export class AdminModule { }
