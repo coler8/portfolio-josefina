@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminComponent } from './page/admin.component';
-import { AddPostComponent } from './components/add-post/add-post.component';
+import { LoginComponent } from './components/login/login.component';
+import { AddPostComponent } from './components/addpost/addpost.component';
 
 
 @NgModule({
   declarations: [
-    AdminComponent
+    AdminComponent,
+    LoginComponent,
+    AddPostComponent
   ],
   imports: [
     CommonModule,
@@ -20,11 +23,9 @@ import { AddPostComponent } from './components/add-post/add-post.component';
       {
         path: 'add-post',
         component: AddPostComponent
-      }
+      },
     ]),
     SharedModule
-  ],
-  exports: [RouterModule]
-
+  ]
 })
 export class AdminModule { }

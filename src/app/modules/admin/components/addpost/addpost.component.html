@@ -1,11 +1,11 @@
-<form>
+<form [formGroup]="profileForm">
     <div class="bg-indigo-50 min-h-screen md:px-20 pt-6">
         <div class=" bg-white rounded-md px-6 py-10 max-w-2xl mx-auto">
             <h1 class="text-center text-2xl font-bold text-gray-500 mb-10">ADD POST</h1>
             <div class="space-y-4">
                 <div>
                     <label for="title" class="text-lx font-serif">Title:</label>
-                    <input type="text" placeholder="title" id="title"
+                    <input type="text" placeholder="title" id="title" formControlName="firstName"
                         class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
                 </div>
                 <div>

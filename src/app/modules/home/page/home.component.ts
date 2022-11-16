@@ -7,10 +7,12 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class HomeComponent {
   title = 'Porfolio Josefina'
-
+  open = true;
   constructor() { }
 
-
+  checkValueOpen(event: any) {
+    this.open = event;
+  }
 
 
 }

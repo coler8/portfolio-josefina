@@ -8,6 +8,6 @@ export class OnImageErrorDirective {
 
   @HostListener('error')
   private onError() {
-    this.el.nativeElement.src = '/assets/images/imagen_default.jpg';
+    this.el.nativeElement.src = '/assets/images/josefina.png';
   }
 }

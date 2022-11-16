@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-blog',
@@ -12,5 +13,6 @@ export class BlogComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
 
 }

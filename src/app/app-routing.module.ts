@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AddPostComponent } from './modules/admin/components/add-post/add-post.component';
+// import { AddPostComponent } from './modules/admin/page/add-post/add-post.component';
 import { AdminComponent } from './modules/admin/page/admin.component';
 
 const routes: Routes = [
