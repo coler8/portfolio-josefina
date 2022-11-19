@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Injectable({
@@ -6,7 +7,18 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class SeoService {
 
-  constructor(private title: Title, private meta: Meta) { }
+  constructor(
+    @Inject(DOCUMENT) private doc,
+    private title: Title,
+    private meta: Meta,
+  ) { }
+
+  createLinkForCanonicalURL() {
+    let link: HTMLLinkElement = this.doc.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    this.doc.head.appendChild(link);
+    link.setAttribute('href', this.doc.URL);
+  }
 
   updateTitle(title: string) {
     this.title.setTitle(title);

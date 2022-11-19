@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-blog',
@@ -8,10 +9,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private seoService: SeoService
+  ) { }
 
   ngOnInit(): void {
-
+    this.seoService.createLinkForCanonicalURL();
   }
 
 

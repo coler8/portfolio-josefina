@@ -1,7 +1,7 @@
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: 'img:not([loading])'
+  selector: 'ximg:not([loading])'
 })
 export class LazyImgDirective {
   constructor({ nativeElement }: ElementRef<HTMLImageElement>) {
