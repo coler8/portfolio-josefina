@@ -10,53 +10,46 @@ import {
 import { Firestore, collectionData, docData } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PostI } from '../core/models/post.model';
 
-interface Pokemon {
-  height: number;
-  id: string;
-  description: string;
-  imgUrl: string;
-  name: string;
-  type: string;
-  weight: number;
-}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
 
-  private pokemonCollection: CollectionReference<DocumentData>;
+  private blogCollection: CollectionReference<DocumentData>;
 
   constructor(private readonly firestore: Firestore) {
-    this.pokemonCollection = collection(this.firestore, 'pokemon');
+    this.blogCollection = collection(this.firestore, 'post');
   }
 
   getAll() {
-    return collectionData(this.pokemonCollection, {
+    return collectionData(this.blogCollection, {
       idField: 'id',
-    }) as Observable<Pokemon[]>;
+    }) as Observable<PostI[]>;
   }
 
   get(id: string) {
-    const pokemonDocumentReference = doc(this.firestore, `pokemon/${id}`);
-    return docData(pokemonDocumentReference, { idField: 'id' });
+    const postDocumentReference = doc(this.firestore, `post/${id}`);
+    return docData(postDocumentReference, { idField: 'id' });
   }
 
-  create(pokemon: string) {
-    return addDoc(this.pokemonCollection, { pokemon });
+  create(post: PostI) {
+    return addDoc(this.blogCollection, { post });
   }
 
-  update(pokemon: Pokemon) {
-    const pokemonDocumentReference = doc(
+  update(post: PostI) {
+    const postDocumentReference = doc(
       this.firestore,
-      `pokemon/${pokemon.id}`
+      `post/${post.id}`
     );
-    return updateDoc(pokemonDocumentReference, { ...pokemon });
+    return updateDoc(postDocumentReference, { ...post });
   }
 
-  delete(id: string) {
-    const pokemonDocumentReference = doc(this.firestore, `pokemon/${id}`);
-    return deleteDoc(pokemonDocumentReference);
+  delete(id: PostI) {
+    const postDocumentReference = doc(this.firestore, `post/${id}`);
+    return deleteDoc(postDocumentReference);
   }
 }

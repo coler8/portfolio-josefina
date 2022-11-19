@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'cookies-component',
@@ -9,20 +9,25 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
             </div>
             <div class="flex gap-4 items-center flex-shrink-0">
                 <button (click)="open = !open; emitOpenValue(open)" class="text-indigo-600 focus:outline-none hover:underline">Decline</button>
-                <button class="bg-indigo-500 px-5 py-2 text-white rounded-md hover:bg-indigo-700 focus:outline-none">Allow
+                <button (click)="open = !open; emitOpenValue(open)" class="bg-indigo-500 px-5 py-2 text-white rounded-md hover:bg-indigo-700 focus:outline-none">Allow
                     Cookies</button>
             </div>
         </div>
   `,
 })
-export class CookiesComponent {
+export class CookiesComponent implements OnInit {
     @Input()
     public open!: boolean;
 
     @Output()
     public emitOpen = new EventEmitter<boolean>();
 
+    ngOnInit(): void {
+
+    }
+
     emitOpenValue(value: boolean) {
+        localStorage.setItem('showChookies', JSON.stringify(value))
         this.emitOpen.emit(value);
     }
 
