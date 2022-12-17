@@ -22,26 +22,25 @@ export class SeoService {
 
   updateTitle(title: string) {
     this.title.setTitle(title);
+    this.meta.updateTag({ name: 'title', content: title })
   }
 
-  updateOgUrl(url: string) {
-    this.meta.updateTag({ name: 'og:url', content: url })
+  updateDescription(desc: string) {
+    this.meta.updateTag({ name: 'description', content: desc })
   }
 
   updateKeywords(keyword: string) {
     this.meta.updateTag({ name: 'keywords', content: keyword })
   }
 
-  updateTwitterTitle(twittertitle: string) {
-    this.meta.updateTag({ name: 'twitter:title', content: twittertitle })
+  updateOgUrl(url: string) {
+    this.meta.updateTag({ property: 'og:url', content: url })
   }
 
   updateOgDescription(ogdescription: string) {
-    this.meta.updateTag({ name: 'og:description', content: ogdescription })
+    this.meta.updateTag({ property: 'og:description', content: ogdescription })
   }
 
-  updateDescription(desc: string) {
-    this.meta.updateTag({ name: 'description', content: desc })
-  }
+
 
 }

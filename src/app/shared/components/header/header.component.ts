@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { inOutAnimation } from 'src/app/core/animations/enter-leave.animation';
 import { RouteUrls } from 'src/app/core/models/enums/route-urls.enum';
 import { HeaderLinkI } from 'src/app/core/models/header.model';
 

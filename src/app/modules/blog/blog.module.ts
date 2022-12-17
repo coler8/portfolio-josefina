@@ -18,7 +18,15 @@ import { AddPostComponent } from './components/addpost/addpost.component';
       {
         path: '',
         component: BlogComponent
-      }
+      },
+      {
+        path: 'detail-post/:id',
+        component: DetailPostComponent
+      },
+      {
+        path: 'edit-post/:id',
+        component: EditPostComponent
+      },
     ]),
     SharedModule
   ],
