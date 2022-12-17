@@ -82,14 +82,14 @@ const routes: Routes = [
     loadChildren: () => import('./modules/conditions/conditions.module').then(m => m.ConditionsModule),
     data: {
       title: 'condiions Josefina',
-      description: 'condiions',
+      description: 'conditions',
       ogUrl: 'https://fisiopandemia.es',
       keywords: 'conditions'
     }
   },
   {
-    path: 'admin',
-    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+    path: 'login',
+    loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
   },
   { path: '**', redirectTo: '' },
 

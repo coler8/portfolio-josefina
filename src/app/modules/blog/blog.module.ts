@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { BlogComponent } from './page/blog.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-
-
+import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { DetailPostComponent } from './components/detail-post/detail-post.component';
 
 @NgModule({
   declarations: [
-    BlogComponent
+    BlogComponent,
+    DetailPostComponent,
+    EditPostComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
       {
         path: '',
         component: BlogComponent
-      }
+      },
+      {
+        path: 'detail-post/:id',
+        component: DetailPostComponent
+      },
+      {
+        path: 'edit-post/:id',
+        component: EditPostComponent
+      },
     ]),
     SharedModule
   ],
