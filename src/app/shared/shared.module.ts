@@ -20,7 +20,6 @@ import { LazyImgDirective } from "./directives/lazy-img.directive";
   imports: [
     RouterModule,
     CommonModule,
-    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
@@ -28,8 +27,6 @@ import { LazyImgDirective } from "./directives/lazy-img.directive";
     WaveComponent,
     LazyImgDirective,
     OnImageErrorDirective,
-    FormsModule,
-    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

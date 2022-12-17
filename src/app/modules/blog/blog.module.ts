@@ -4,8 +4,9 @@ import { BlogComponent } from './page/blog.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddPostComponent } from './components/addpost/addpost.component';
-
-
+import { DetailPostComponent } from './components/detail-post/detail-post.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddPostComponent } from './components/addpost/addpost.component';
         component: EditPostComponent
       },
     ]),
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [RouterModule]
 

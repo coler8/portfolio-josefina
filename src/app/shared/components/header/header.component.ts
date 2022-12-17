@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteUrls } from 'src/app/core/models/enums/route-urls.enum';
-import { HeaderLinkI } from 'src/app/core/models/header.model';
+import { HeaderLinkI } from 'src/app/core/models/header.interface';
 
 @Component({
   selector: 'app-header',
@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
       name: 'Tarifas'
     },
     {
-      routerlink: RouteUrls.admin,
+      routerlink: RouteUrls.login,
       name: 'Login'
     },
   ];

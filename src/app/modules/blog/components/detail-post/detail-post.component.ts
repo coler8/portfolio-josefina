@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirestoreService } from 'src/app/services/firestore.service';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'detail-post',
@@ -7,7 +7,7 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 })
 export class DetailPostComponent implements OnInit {
 
-  constructor(private firestore: FirestoreService) { }
+  constructor(private firestore: PostService) { }
 
   ngOnInit(): void {
   }

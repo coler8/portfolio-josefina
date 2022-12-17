@@ -10,14 +10,12 @@ import {
 import { Firestore, collectionData, docData } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PostI } from '../core/models/post.model';
-
-
+import { PostI } from '../core/models/post.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreService {
+export class PostService {
 
   private blogCollection: CollectionReference<DocumentData>;
 
@@ -25,31 +23,31 @@ export class FirestoreService {
     this.blogCollection = collection(this.firestore, 'post');
   }
 
-  getAll() {
+  getAllPosts(): Observable<PostI[]> {
     return collectionData(this.blogCollection, {
       idField: 'id',
     }) as Observable<PostI[]>;
   }
 
-  get(id: string) {
-    const postDocumentReference = doc(this.firestore, `post/${id}`);
-    return docData(postDocumentReference, { idField: 'id' });
+  getPost(id: string) {
+    const postDocumentRef = doc(this.firestore, `post/${id}`);
+    return docData(postDocumentRef, { idField: 'id' });
   }
 
-  create(post: PostI) {
+  createPost(post: PostI) {
     return addDoc(this.blogCollection, { post });
   }
 
-  update(post: PostI) {
-    const postDocumentReference = doc(
+  updatePost(post: PostI) {
+    const postDocumentRef = doc(
       this.firestore,
       `post/${post.id}`
     );
-    return updateDoc(postDocumentReference, { ...post });
+    return updateDoc(postDocumentRef, { ...post });
   }
 
-  delete(id: PostI) {
-    const postDocumentReference = doc(this.firestore, `post/${id}`);
-    return deleteDoc(postDocumentReference);
+  deletePost(id: PostI) {
+    const postDocumentRef = doc(this.firestore, `post/${id}`);
+    return deleteDoc(postDocumentRef);
   }
 }
