@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { BlogComponent } from './page/blog.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AddPostComponent } from './components/addpost/addpost.component';
 
 
 
 @NgModule({
   declarations: [
-    BlogComponent
+    BlogComponent,
+    AddPostComponent
   ],
   imports: [
     CommonModule,

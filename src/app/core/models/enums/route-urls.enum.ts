@@ -7,4 +7,5 @@ export enum RouteUrls {
   prices = '/prices',
   politic = '/politic',
   conditions = '/conditions',
+  admin = '/admin'
 }

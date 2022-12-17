@@ -1,10 +1,10 @@
 <section class="bg-gray-200">
 
     <!--Header-->
-    <div class="text-center md:pb-16 py-16">
+    <div class="text-center pt-16">
         <h1 class="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4  ">
-            Make your website <span
-                class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">wonderful</span>
+            Mis vivencias <span
+                class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">blog</span>
         </h1>
         <div class="max-w-3xl mx-auto">
             <p class="text-xl text-gray-600 mb-8  ">Our
@@ -16,8 +16,13 @@
         </div>
     </div>
 
-    <section class="py-16 mb-16">
-        <button class="header-button" routerLink="/add-post"> Añadir post</button>
+    <section class="mb-16">
+        <div class="flex items-center justify-center">
+              <add-post></add-post>
+        </div>
+
+        
+        
         <div class="mx-auto max-w-7xl px-8 md:px-6">
             <!-- heading text -->
             <div class="mb-5 sm:mb-10">
@@ -33,7 +38,7 @@
                             alt="blog img" class="w-full" onError>
                     </div>
                     <div class="rounded-b-xl px-5 pb-5 pt-3 shadow-md shadow-blue-500/10">
-                        <div class="">
+                        <div>
                             <a href="#" class="mr-2 rounded-md bg-blue-50 px-3 py-1 text-sm text-slate-600">Services</a>
                             <a href="#"
                                 class="block pt-4 font-medium capitalize text-slate-800 hover:text-blue-500">Lorem Ipsum
@@ -45,6 +50,11 @@
                                 alt="user img" class="mr-3 h-10 w-10 rounded-full object-cover">
                             <p class="text-sm font-semibold capitalize text-slate-600">Zahidul Hossain <span
                                     class="block text-xs text-slate-400">web designer</span></p>
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <button class="boton-azul m-2 ">Editar</button>
+                            <button class="boton-azul m-2">Eliminar</button>
+
                         </div>
                     </div>
                 </div>

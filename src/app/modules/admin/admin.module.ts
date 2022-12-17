@@ -4,14 +4,14 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminComponent } from './page/admin.component';
 import { LoginComponent } from './components/login/login.component';
-import { AddPostComponent } from './components/addpost/addpost.component';
+import { AddPostComponent } from '../blog/components/addpost/addpost.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     LoginComponent,
-    AddPostComponent
+    // AddPostComponent
   ],
   imports: [
     CommonModule,
@@ -20,10 +20,10 @@ import { AddPostComponent } from './components/addpost/addpost.component';
         path: '',
         component: AdminComponent
       },
-      {
-        path: 'add-post',
-        component: AddPostComponent
-      },
+      // {
+      //   path: 'add-post',
+      //   component: AddPostComponent
+      // },
     ]),
     SharedModule
   ]

@@ -50,6 +50,10 @@ export class HeaderComponent implements OnInit {
       routerlink: RouteUrls.prices,
       name: 'Tarifas'
     },
+    {
+      routerlink: RouteUrls.admin,
+      name: 'Login'
+    },
   ];
 
   constructor() {
