@@ -1,7 +1,9 @@
 
 export interface PostI {
-    id: string;
+    id?: string;
     title: string;
+    image: string;
     description: string;
-    imgUrl: string;
+    content: string;
+    createdAt?: Date;
 }

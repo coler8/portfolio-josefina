@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BlogComponent } from './page/blog.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AddPostComponent } from './components/addpost/addpost.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
 import { DetailPostComponent } from './components/detail-post/detail-post.component';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -11,7 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     BlogComponent,
-    AddPostComponent
+    AddPostComponent,
+    EditPostComponent,
+    DetailPostComponent
   ],
   imports: [
     CommonModule,

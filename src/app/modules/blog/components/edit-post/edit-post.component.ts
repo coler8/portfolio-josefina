@@ -1,6 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnDestroy } from '@angular/core';
+import { DocumentData } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
+import { RouteUrls } from 'src/app/core/models/enums/route-urls.enum';
 import { PostI } from 'src/app/core/models/post.interface';
 import { PostService } from 'src/app/services/post.service';
 
@@ -8,34 +12,67 @@ import { PostService } from 'src/app/services/post.service';
   selector: 'edit-post',
   templateUrl: './edit-post.component.html',
 })
-export class EditPostComponent implements OnInit {
-  @Output() save: EventEmitter<PostI> = new EventEmitter();
+export class EditPostComponent implements OnInit, OnDestroy {
 
-  public postForm: FormGroup;
-
-  public posts: Observable<any[]>;
+  public editPostForm!: FormGroup;
+  public post$: Observable<PostI>;
+  public idPost: string;
+  private stopSubscription$: Subject<void> = new Subject<void>();
 
   constructor(
-    private firestore: PostService,
-    private readonly formBuilder: FormBuilder
+    private postService: PostService,
+    private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
-    this.postForm = this.formBuilder.nonNullable.group({
-      title: ['', [Validators.required]]
+    this.editPostForm = this.fb.nonNullable.group({
+      title: ['', [Validators.required]],
+      image: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      content: ['', [Validators.required]]
     });
   }
 
   ngOnInit(): void {
-    this.posts = this.firestore.getAllPosts();
+    this.idPost = this.activatedRoute.snapshot.params['id'];
+
+    if (this.idPost) {
+      this.post$ = this.postService.getPost(this.idPost);
+      this.post$.pipe(takeUntil(this.stopSubscription$)).subscribe((post) => {
+        this.initValuesForm(post);
+      });
+    }
   }
 
-  handleSubmit() {
-    // const form: PostI = {
-    //   id: '1',
-    //   title: this.postForm.value.title as string,
-    //   description: this.postForm.value.description as string,
-    //   imgUrl: this.postForm.value.img as string
-    // }
-    this.save.emit(this.postForm.getRawValue());
+
+  submitEditPost() {
+    let postObj = {
+      id: this.idPost,
+      createdAt: Date.now(),
+      ...this.editPostForm.value
+    }
+    this.postService.updatePost(postObj).then(() => { this.router.navigate([RouteUrls.blog]) });
+  }
+
+
+  private resetForm() {
+    this.editPostForm.reset();
+  }
+
+  private initValuesForm(post: PostI): void {
+    this.editPostForm.patchValue({
+      title: post['title'],
+      image: post['image'],
+      description: post['description'],
+      content: post['content'],
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.stopSubscription$) {
+      this.stopSubscription$.next();
+      this.stopSubscription$.complete();
+    }
   }
 
 

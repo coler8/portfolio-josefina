@@ -1,5 +1,4 @@
-<section class="bg-gray-200">
-  <!--Header-->
+<section class="min-h-screen bg-gray-200">
   <div class="text-center pt-16">
     <h1
       class="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
@@ -21,400 +20,96 @@
     </div>
   </div>
 
-  <section class="mb-16">
-    <div class="flex items-center justify-center">
+  <div class="pb-16">
+    <div class="flex items-center justify-center" *ngIf="user$ | async">
       <add-post (save)="handleSave($event)"></add-post>
     </div>
 
     <div class="mx-auto max-w-7xl px-8 md:px-6">
-      <!-- heading text -->
-      <div class="mb-5 sm:mb-10">
-        <span class="font-medium text-blue-500">Our Blog</span>
+      <div class="sm:mb-6">
+        <span class="font-medium text-blue-500">Blog</span>
         <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">
-          From Our Latest Blog
+          Últimas publicaciones
         </h1>
       </div>
-      <!-- wrapper -->
-      <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:gap-10">
-        <!-- single-blog -->
-        <div class="w-full duration-200 hover:scale-95 bg-white rounded-t-xl">
-          <div class="max-h-52 w-full overflow-hidden rounded-t-xl">
-            <img
-              src="https://zahidul-tailwissndcss-website1.netlify.app/images/blog/blog-1.png"
-              alt="blog img"
-              class="w-full"
-              onError
-            />
-          </div>
-          <div class="rounded-b-xl px-5 pb-5 pt-3 shadow-md shadow-blue-500/10">
-            <div>
-              <a
-                href="#"
-                class="mr-2 rounded-md bg-blue-50 px-3 py-1 text-sm text-slate-600"
-                >Services</a
-              >
-              <a
-                [routerLink]="'/blog/detail-post/{{post.id}}'"
-                class="block pt-4 font-medium capitalize text-slate-800 hover:text-blue-500"
-                >mostrar mas.</a
-              >
-            </div>
-            <hr class="my-4 border-slate-100" />
-            <div class="flex">
-              <img
-                src="https://zahidul-tailwindcss-website1.netlify.app/images/blog/user-2.png"
-                alt="user img"
-                class="mr-3 h-10 w-10 rounded-full object-cover"
-              />
-              <p class="text-sm font-semibold capitalize text-slate-600">
-                Zahidul Hossain
-                <span class="block text-xs text-slate-400">web designer</span>
-              </p>
-            </div>
-            <div class="flex flex-row items-center">
-              <button class="boton-azul m-2">Editar</button>
-              <button class="boton-azul m-2">Eliminar</button>
-            </div>
-          </div>
-        </div>
 
-        <!-- single-blog -->
-        <div class="w-full duration-200 hover:scale-95 bg-white rounded-t-xl">
-          <div class="max-h-52 w-full overflow-hidden rounded-t-xl">
-            <img
-              src="https://zahidul-tailwindcss-website1.netlify.app/images/blog/blog-2.png"
-              alt="blog img"
-              class="w-full"
-            />
-          </div>
-          <div class="rounded-b-xl px-5 pb-5 pt-3 shadow-md shadow-blue-500/10">
-            <div class="">
-              <a
-                href="#"
-                class="mr-2 rounded-md bg-blue-50 px-3 py-1 text-sm text-slate-600"
-                >Services</a
-              >
-              <a
-                href="#"
-                class="mr-2 rounded-md bg-blue-50 px-3 py-1 text-sm text-slate-600"
-                >Design</a
-              >
-              <a
-                href="#"
-                class="block pt-4 font-medium capitalize text-slate-800 hover:text-blue-500"
-                >Dolore Placeat Ullam Architecto Deleniti Maxime Laborum</a
-              >
-            </div>
-            <hr class="my-4 border-slate-100" />
-            <div class="flex">
-              <img
-                src="https://zahidul-tailwindcss-website1.netlify.app/images/blog/user-2.png"
-                alt="user img"
-                class="mr-3 h-10 w-10 rounded-full object-cover"
-              />
-              <p class="text-sm font-semibold capitalize text-slate-600">
-                Zahidul Hossain
-                <span class="block text-xs text-slate-400">web designer</span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- single-blog -->
-        <div class="w-full duration-200 hover:scale-95 bg-white rounded-t-xl">
-          <div class="max-h-52 w-full overflow-hidden rounded-t-xl">
-            <img
-              src="https://zahidul-tailwindcss-website1.netlify.app/images/blog/blog-3.png"
-              alt="blog img"
-              class="w-full"
-            />
-          </div>
-          <div class="rounded-b-xl px-5 pb-5 pt-3 shadow-md shadow-blue-500/10">
-            <div class="">
-              <a
-                href="#"
-                class="mr-2 rounded-md bg-blue-50 px-3 py-1 text-sm text-slate-600"
-                >Website</a
-              >
-              <a
-                href="#"
-                class="block pt-4 font-medium capitalize text-slate-800 hover:text-blue-500"
-                >Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit.</a
-              >
-            </div>
-            <hr class="my-4 border-slate-100" />
-            <div class="flex">
-              <img
-                src="https://zahidul-tailwindcss-website1.netlify.app/images/blog/user-2.png"
-                alt="user img"
-                class="mr-3 h-10 w-10 rounded-full object-cover"
-              />
-              <p class="text-sm font-semibold capitalize text-slate-600">
-                Zahidul Hossain
-                <span class="block text-xs text-slate-400">web designer</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--Container-->
-  <div class="container px-4 md:px-0 max-w-6xl mx-auto">
-    <div class="mx-0 sm:mx-6">
       <div
         class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t"
       >
-        <!--Lead Card-->
-        <div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
-          <a
-            href="post.html"
-            class="flex flex-wrap no-underline hover:no-underline"
-          >
-            <div class="w-full md:w-2/3 rounded-t">
-              <img
-                src="https://source.unsplash.com/collection/494263/800x600"
-                class="h-full w-full shadow"
-              />
-            </div>
-
-            <div class="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
+        <div class="flex flex-wrap -mx-6">
+          <ng-container *ngIf="posts$ | async as posts; else loading">
+            <ng-container *ngIf="posts.length; else noData">
               <div
-                class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg"
+                class="w-full duration-200 hover:scale-95 md:w-1/3 p-6 flex flex-col cursor-pointer"
+                *ngFor="let post of posts; trackBy: postTrackBy"
               >
-                <p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">
-                  GETTING STARTED
-                </p>
-                <div class="w-full font-bold text-xl text-gray-900 px-6">
-                  👋 Welcome fellow Tailwind CSS and Ghost fan
+                <div
+                  class="bg-white rounded-t rounded-b-none overflow-hidden shadow-lg"
+                >
+                  <a class="flex flex-wrap no-underline hover:no-underline">
+                    <img
+                      [src]="post.image"
+                      class="h-64 w-full rounded-t pb-6"
+                      onError
+                    />
+                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                      GETTING STARTED
+                    </p>
+                    <a
+                      class="w-full font-bold text-xl text-gray-900 px-6"
+                      [routerLink]="['detail-post', post.id]"
+                    >
+                      {{ post.title }}
+                    </a>
+                    <p class="text-gray-800 font-serif text-base px-6 mb-5">
+                      {{ post.description }}
+                    </p>
+                  </a>
                 </div>
-                <p class="text-gray-800 font-serif text-base px-6 mb-5">
-                  This starter template is an attempt to replicate the default
-                  Ghost theme "Casper" using Tailwind CSS and vanilla
-                  Javascript.
-                </p>
-              </div>
+                <div
+                  class="bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6"
+                >
+                  <div class="flex">
+                    <img
+                      src="https://zahidul-tailwindcss-website1.netlify.app/images/blog/user-2.png"
+                      alt="user img"
+                      class="mr-3 h-10 w-10 rounded-full object-cover"
+                    />
+                    <p class="text-sm font-semibold capitalize text-slate-600">
+                      Zahidul Hossain
+                      <span class="block text-xs text-slate-400"
+                        >web designer</span
+                      >
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-center justify-center mt-6 gap-1"
+                    *ngIf="user$ | async"
+                  >
+                    <button
+                      class="boton-blue"
+                      type="button"
+                      [routerLink]="['edit-post', post.id]"
+                    >
+                      Editar
+                    </button>
 
-              <div
-                class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6"
-              >
-                <div class="flex items-center justify-between">
-                  <img
-                    class="w-8 h-8 rounded-full mr-4 avatar"
-                    data-tippy-content="Author Name"
-                    src="http://i.pravatar.cc/300"
-                    alt="Avatar of Author"
-                  />
-                  <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
+                    <button class="boton-rojo" (click)="deletePost(post.id)">
+                      Eliminar
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
+            </ng-container>
+            <ng-template #noData>
+              <p class="px-6">No hay posts disponibles.</p>
+            </ng-template>
+          </ng-container>
+
+          <ng-template #loading>
+            <p class="px-6">Cargando posts...</p>
+          </ng-template>
         </div>
-        <!--/Lead Card-->
-
-        <!--Posts Container-->
-        <div class="flex flex-wrap justify-between pt-12 -mx-6">
-          <!--1/3 col -->
-          <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div
-              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg"
-            >
-              <a
-                href="#"
-                class="flex flex-wrap no-underline hover:no-underline"
-              >
-                <img
-                  src="https://source.unsplash.com/collection/225/800x600"
-                  class="h-64 w-full rounded-t pb-6"
-                />
-                <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                  GETTING STARTED
-                </p>
-                <div class="w-full font-bold text-xl text-gray-900 px-6">
-                  Lorem ipsum dolor sit amet.
-                </div>
-                <p class="text-gray-800 font-serif text-base px-6 mb-5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-                </p>
-              </a>
-            </div>
-            <div
-              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6"
-            >
-              <div class="flex items-center justify-between">
-                <img
-                  class="w-8 h-8 rounded-full mr-4 avatar"
-                  data-tippy-content="Author Name"
-                  src="http://i.pravatar.cc/300"
-                  alt="Avatar of Author"
-                />
-                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-              </div>
-            </div>
-          </div>
-
-          <!--1/3 col -->
-          <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div
-              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg"
-            >
-              <a
-                href="#"
-                class="flex flex-wrap no-underline hover:no-underline"
-              >
-                <img
-                  src="https://source.unsplash.com/collection/3106804/800x600"
-                  class="h-64 w-full rounded-t pb-6"
-                />
-                <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                  GETTING STARTED
-                </p>
-                <div class="w-full font-bold text-xl text-gray-900 px-6">
-                  Lorem ipsum dolor sit amet.
-                </div>
-                <p class="text-gray-800 font-serif text-base px-6 mb-5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. ipsum
-                  dolor sit amet, consectetur adipiscing elit. Aliquam at ip
-                  Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-                </p>
-              </a>
-            </div>
-            <div
-              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6"
-            >
-              <div class="flex items-center justify-between">
-                <img
-                  class="w-8 h-8 rounded-full mr-4 avatar"
-                  data-tippy-content="Author Name"
-                  src="http://i.pravatar.cc/300"
-                  alt="Avatar of Author"
-                />
-                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-              </div>
-            </div>
-          </div>
-
-          <!--1/3 col -->
-          <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div
-              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg"
-            >
-              <a
-                href="#"
-                class="flex flex-wrap no-underline hover:no-underline"
-              >
-                <img
-                  src="https://source.unsplash.com/collection/539527/800x600"
-                  class="h-64 w-full rounded-t pb-6"
-                />
-                <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                  GETTING STARTED
-                </p>
-                <div class="w-full font-bold text-xl text-gray-900 px-6">
-                  Lorem ipsum dolor sit amet.
-                </div>
-                <p class="text-gray-800 font-serif text-base px-6 mb-5">
-                  Lorem ipsum eu nunc commodo posuere et sit amet ligula.
-                </p>
-              </a>
-            </div>
-            <div
-              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6"
-            >
-              <div class="flex items-center justify-between">
-                <img
-                  class="w-8 h-8 rounded-full mr-4 avatar"
-                  data-tippy-content="Author Name"
-                  src="http://i.pravatar.cc/300"
-                  alt="Avatar of Author"
-                />
-                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-              </div>
-            </div>
-          </div>
-
-          <!--1/2 col -->
-          <div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-            <div
-              class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg"
-            >
-              <a
-                href="#"
-                class="flex flex-wrap no-underline hover:no-underline"
-              >
-                <img
-                  src="https://source.unsplash.com/collection/3657445/800x600"
-                  class="h-full w-full rounded-t pb-6"
-                />
-                <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                  GETTING STARTED
-                </p>
-                <div class="w-full font-bold text-xl text-gray-900 px-6">
-                  Lorem ipsum dolor sit amet.
-                </div>
-                <p class="text-gray-800 font-serif text-base px-6 mb-5">
-                  Lorem ipsum eu nunc commodo posuere et sit amet ligula.
-                </p>
-              </a>
-            </div>
-            <div
-              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6"
-            >
-              <div class="flex items-center justify-between">
-                <img
-                  class="w-8 h-8 rounded-full mr-4 avatar"
-                  data-tippy-content="Author Name"
-                  src="http://i.pravatar.cc/300"
-                  alt="Avatar of Author"
-                />
-                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-              </div>
-            </div>
-          </div>
-
-          <!--1/2 col -->
-          <div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-            <div
-              class="flex-1 flex-row bg-white rounded-t rounded-b-none overflow-hidden shadow-lg"
-            >
-              <a
-                href="#"
-                class="flex flex-wrap no-underline hover:no-underline"
-              >
-                <img
-                  src="https://source.unsplash.com/collection/764827/800x600"
-                  class="h-full w-full rounded-t pb-6"
-                />
-                <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                  GETTING STARTED
-                </p>
-                <div class="w-full font-bold text-xl text-gray-900 px-6">
-                  Lorem ipsum dolor sit amet.
-                </div>
-                <p class="text-gray-800 font-serif text-base px-6 mb-5">
-                  Lorem ipsum eu nunc commodo posuere et sit amet ligula.
-                </p>
-              </a>
-            </div>
-            <div
-              class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6"
-            >
-              <div class="flex items-center justify-between">
-                <img
-                  class="w-8 h-8 rounded-full mr-4 avatar"
-                  data-tippy-content="Author Name"
-                  src="http://i.pravatar.cc/300"
-                  alt="Avatar of Author"
-                />
-                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--/ Post Content-->
       </div>
     </div>
   </div>

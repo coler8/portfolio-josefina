@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-     //font-family: "Inter", sans-serif;
+    //font-family: "Inter", sans-serif;
   }
 }
 
@@ -13,7 +13,13 @@
   .boton-header {
     @apply block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0;
   }
-  .boton-azul{
-    @apply block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded
+  .boton-blue {
+    @apply w-full mb-4 rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 hover:bg-blue-600 duration-200 md:w-max;
+  }
+  .boton-azul {
+    @apply block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+  .boton-rojo {
+    @apply w-full mb-4 rounded-md bg-red-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-red-500/20 hover:bg-red-600 duration-200 md:w-max;
   }
 }

@@ -1,1 +1,153 @@
-editar post
+<div class="relative w-auto my-6 mx-auto max-w-6xl">
+  <div
+    class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
+  >
+    <div
+      class="flex flex-col items-start p-5 border-b border-solid border-slate-200 rounded-t"
+    >
+      <span class="text-base md:text-sm text-blue-500 font-bold">
+        &lt;
+        <a
+          [routerLink]="['/blog']"
+          routerLinkActive="router-link-active"
+          class="text-base md:text-sm text-blue-500 font-bold no-underline hover:underline"
+          >VOLVER ATRÁS</a
+        >
+      </span>
+      <h3 class="text-3xl font-semibold">Editar Post</h3>
+    </div>
+    <div
+      class="relative p-6 flex-auto"
+      *ngIf="post$ | async as post; else loading"
+    >
+      <form [formGroup]="editPostForm" (ngSubmit)="submitEditPost()">
+        <div
+          class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col"
+        >
+          <div class="mb-6 md:flex">
+            <div class="md:w-full px-3">
+              <label
+                class="uppercase tracking-wide text-black text-xs font-bold mb-2"
+                for="application-link"
+              >
+                Titulo*
+              </label>
+              <input
+                class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
+                type="text"
+                placeholder="title"
+                name="title"
+                formControlName="title"
+              />
+
+              <div
+                *ngIf="
+                  editPostForm.controls['title']?.dirty &&
+                  !editPostForm.controls['title'].valid
+                "
+              >
+                <span class="text-red-500 text-xs italic">
+                  Introduce un titulo.
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-6 md:flex">
+            <div class="md:w-full px-3 mb-6">
+              <label
+                class="uppercase tracking-wide text-black text-xs font-bold mb-2"
+                for="application-link"
+              >
+                Imagen*
+              </label>
+              <input
+                class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
+                type="text"
+                placeholder="image"
+                name="image"
+                formControlName="image"
+              />
+              <div
+                *ngIf="
+                  editPostForm.controls['image']?.dirty &&
+                  !editPostForm.controls['image'].valid
+                "
+              >
+                <span class="text-red-500 text-xs italic">
+                  Introduce una imagen.
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-6 md:flex">
+            <div class="md:w-full px-3 mb-6">
+              <label
+                class="uppercase tracking-wide text-black text-xs font-bold mb-2"
+                for="application-link"
+              >
+                Descripción*
+              </label>
+              <input
+                class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
+                type="text"
+                placeholder="description"
+                name="description"
+                formControlName="description"
+              />
+              <div
+                *ngIf="
+                  editPostForm.controls['description']?.dirty &&
+                  !editPostForm.controls['description'].valid
+                "
+              >
+                <span class="text-red-500 text-xs italic">
+                  Introduce una description.
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-6">
+            <div class="md:w-full px-3 mb-6">
+              <label
+                class="uppercase tracking-wide text-black text-xs font-bold mb-2"
+                for="application-link"
+              >
+                Contenido*
+              </label>
+              <textarea
+                formControlName="content"
+                name="content"
+                class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
+              ></textarea>
+              <div
+                *ngIf="
+                  editPostForm.controls['content']?.dirty &&
+                  !editPostForm.controls['content'].valid
+                "
+              >
+                <span class="text-red-500 text-xs italic">
+                  Introduce una content.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {{ editPostForm.value | json }}
+
+          <div class="mb-6 md:flex mt-2">
+            <div class="md:w-full px-3">
+              <button
+                type="submit"
+                class="w-full rounded border border-blue-300 bg-blue-500 p-3 text-white transition-all hover:bg-opacity-90 disabled:opacity-25"
+                [disabled]="editPostForm.invalid"
+              >
+                Actualizar post
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <ng-template #loading><p class="p-12">Cargando...</p></ng-template>
+  </div>
+</div>

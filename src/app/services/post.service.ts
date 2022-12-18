@@ -31,11 +31,17 @@ export class PostService {
 
   getPost(id: string) {
     const postDocumentRef = doc(this.firestore, `post/${id}`);
-    return docData(postDocumentRef, { idField: 'id' });
+    return docData(postDocumentRef, { idField: 'id' }) as Observable<PostI>;
   }
 
   createPost(post: PostI) {
-    return addDoc(this.blogCollection, { post });
+    const { id } = doc(this.blogCollection);
+    let postObj = {
+      ...post,
+      createdAt: Date.now(),
+      id
+    }
+    return addDoc(this.blogCollection, postObj);
   }
 
   updatePost(post: PostI) {
@@ -46,7 +52,7 @@ export class PostService {
     return updateDoc(postDocumentRef, { ...post });
   }
 
-  deletePost(id: PostI) {
+  deletePost(id: string) {
     const postDocumentRef = doc(this.firestore, `post/${id}`);
     return deleteDoc(postDocumentRef);
   }

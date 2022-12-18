@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LoginComponent } from './page/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LoginComponent } from './page/login.component';
         component: LoginComponent
       },
     ]),
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class LoginModule { }

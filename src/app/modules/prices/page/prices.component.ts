@@ -4,7 +4,6 @@ import { inOutAnimation } from 'src/app/core/animations/enter-leave.animation';
 @Component({
   selector: 'app-prices',
   templateUrl: './prices.component.html',
-  styleUrls: ['./prices.component.scss'],
   animations: [inOutAnimation]
 
 })

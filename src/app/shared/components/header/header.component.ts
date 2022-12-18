@@ -5,7 +5,6 @@ import { HeaderLinkI } from 'src/app/core/models/header.interface';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   isOpen: boolean = false;

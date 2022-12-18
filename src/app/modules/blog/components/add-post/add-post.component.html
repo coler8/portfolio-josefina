@@ -28,7 +28,7 @@
           <div
             class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col"
           >
-            <div class="mb-6 md:flex mb-6">
+            <div class="mb-6 md:flex">
               <div class="md:w-full px-3">
                 <label
                   class="uppercase tracking-wide text-black text-xs font-bold mb-2"
@@ -40,12 +40,18 @@
                   class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
                   type="text"
                   placeholder="title"
-                  id="title"
+                  name="title"
                   formControlName="title"
                 />
-                <div>
+
+                <div
+                  *ngIf="
+                    postForm.controls['title']?.dirty &&
+                    !postForm.controls['title'].valid
+                  "
+                >
                   <span class="text-red-500 text-xs italic">
-                    Please fill out this field.
+                    Introduce un titulo.
                   </span>
                 </div>
               </div>
@@ -61,13 +67,18 @@
                 <input
                   class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
                   type="text"
-                  placeholder="title"
-                  id="title"
-                  formControlName="title"
+                  placeholder="image"
+                  name="image"
+                  formControlName="image"
                 />
-                <div>
+                <div
+                  *ngIf="
+                    postForm.controls['image']?.dirty &&
+                    !postForm.controls['image'].valid
+                  "
+                >
                   <span class="text-red-500 text-xs italic">
-                    Please fill out this field.
+                    Introduce una imagen.
                   </span>
                 </div>
               </div>
@@ -83,13 +94,18 @@
                 <input
                   class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
                   type="text"
-                  placeholder="title"
-                  id="title"
-                  formControlName="title"
+                  placeholder="description"
+                  name="description"
+                  formControlName="description"
                 />
-                <div>
+                <div
+                  *ngIf="
+                    postForm.controls['description']?.dirty &&
+                    !postForm.controls['description'].valid
+                  "
+                >
                   <span class="text-red-500 text-xs italic">
-                    Please fill out this field.
+                    Introduce una description.
                   </span>
                 </div>
               </div>
@@ -104,22 +120,29 @@
                 </label>
                 <textarea
                   formControlName="content"
-                  id="content"
+                  name="content"
                   class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
                 ></textarea>
-                <div>
+                <div
+                  *ngIf="
+                    postForm.controls['content']?.dirty &&
+                    !postForm.controls['content'].valid
+                  "
+                >
                   <span class="text-red-500 text-xs italic">
-                    Please fill out this field.
+                    Introduce una content.
                   </span>
                 </div>
               </div>
             </div>
 
+            {{ postForm.value | json }}
+
             <div class="mb-6 md:flex mt-2">
               <div class="md:w-full px-3">
                 <button
                   type="submit"
-                  class="w-full rounded border border-blue-300 bg-blue-500 p-3 text-white transition-all hover:bg-opacity-90"
+                  class="w-full rounded border border-blue-300 bg-blue-500 p-3 text-white transition-all hover:bg-opacity-90 disabled:opacity-25"
                   [disabled]="postForm.invalid"
                 >
                   Añadir post
