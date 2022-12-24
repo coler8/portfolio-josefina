@@ -15,7 +15,7 @@ export class BlogComponent implements OnInit {
   public user$: Observable<any>;
   public posts$: Observable<any[]>;
   public showEditModal: boolean = false;
-
+  linkHasFocus;
   constructor(
     private seoService: SeoService,
     private postService: PostService,
