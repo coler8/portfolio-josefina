@@ -1,0 +1,16 @@
+<table class="table-auto m-auto">
+  <thead>
+    <tr>
+      <th>Día</th>
+      <th>&nbsp;</th>
+      <th>Hora</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of horario">
+      <td>{{ item.nameDay }}</td>
+      <td>&nbsp;</td>
+      <td>{{ item.hours }}</td>
+    </tr>
+  </tbody>
+</table>

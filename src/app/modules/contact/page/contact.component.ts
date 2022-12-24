@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  public selected: any = 0;
   constructor() { }
 
   ngOnInit(): void {

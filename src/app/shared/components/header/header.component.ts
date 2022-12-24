@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RouteUrls } from 'src/app/core/models/enums/route-urls.enum';
 import { HeaderLinkI } from 'src/app/core/models/header.interface';
 
@@ -23,14 +23,16 @@ export class HeaderComponent implements OnInit {
     }
   ];
 
+
+
   public pages: HeaderLinkI[] = [
     {
       routerlink: RouteUrls.home,
       name: 'Home'
     },
     {
-      routerlink: RouteUrls.contact,
-      name: 'Contacto'
+      routerlink: RouteUrls.help,
+      name: 'Servicios'
     },
     {
       routerlink: RouteUrls.aboutme,
@@ -41,12 +43,12 @@ export class HeaderComponent implements OnInit {
       name: 'Blog'
     },
     {
-      routerlink: RouteUrls.help,
-      name: 'Ayudarte'
+      routerlink: RouteUrls.prices,
+      name: 'Precios'
     },
     {
-      routerlink: RouteUrls.prices,
-      name: 'Tarifas'
+      routerlink: RouteUrls.contact,
+      name: 'Contacto'
     },
     {
       routerlink: RouteUrls.login,
@@ -54,16 +56,24 @@ export class HeaderComponent implements OnInit {
     },
   ];
 
+  @HostListener("document:click", ['$event'])
+  clickedOut(e) {
+    if (e.target.id !== 'menu-button' && e.target.id !== 'svg-button' && e.target.id !== 'path-button' && e.target.id !== 'navbar-sticky') {
+      this.isOpen = false;
+    }
+  }
+
   constructor() {
   }
 
+
+
+
+
   ngOnInit(): void {
-  }
 
-  toggleNavbar() {
-    const targetEl = document.getElementById('navbar-sticky');
-    targetEl?.classList.remove('hidden');
 
   }
+
 
 }

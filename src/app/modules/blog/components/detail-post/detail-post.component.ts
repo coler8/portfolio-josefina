@@ -5,13 +5,15 @@ import { Observable, Subject, takeUntil } from 'rxjs';
 import { PostI } from 'src/app/core/models/post.interface';
 import { PostService } from 'src/app/services/post.service';
 import localeEs from '@angular/common/locales/es';
+import { inOutAnimation } from 'src/app/core/animations/enter-leave.animation';
 
 registerLocaleData(localeEs, 'es');
 
 @Component({
   selector: 'detail-post',
   templateUrl: './detail-post.component.html',
-  providers: [{ provide: LOCALE_ID, useValue: 'es' }]
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
+  animations: [inOutAnimation]
 
 })
 export class DetailPostComponent implements OnInit {

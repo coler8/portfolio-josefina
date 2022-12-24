@@ -4,12 +4,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     selector: 'cookies-component',
     template: `
         <div class="z-20 max-w-screen-lg mx-auto fixed bg-white inset-x-5 p-5 bottom-3 rounded-lg drop-shadow-2xl flex gap-4 flex-wrap md:flex-nowrap text-center md:text-left items-center justify-center md:justify-between">
-            <div class="w-full">This website uses cookies to ensure you get the best experience on our website.
+            <div class="w-full">
+            Este sitio web utiliza cookies para garantizar que obtenga la mejor experiencia en nuestro sitio web.
                 <!-- <a href="#" class="text-indigo-600 whitespace-nowrap  hover:underline">Learn more</a> -->
             </div>
             <div class="flex gap-4 items-center flex-shrink-0">
-                <button (click)="open = !open; emitOpenValue(open)" class="text-indigo-600 focus:outline-none hover:underline">Decline</button>
-                <button (click)="open = !open; emitOpenValue(open)" class="bg-indigo-500 px-5 py-2 text-white rounded-md hover:bg-indigo-700 focus:outline-none">Allow
+                <button (click)="open = !open; emitOpenValue(open)" class="text-indigo-600 focus:outline-none hover:underline">Rechazar</button>
+                <button (click)="open = !open; emitOpenValue(open)" class="bg-indigo-500 px-5 py-2 text-white rounded-md hover:bg-indigo-700 focus:outline-none">Aceptar
                     Cookies</button>
             </div>
         </div>
