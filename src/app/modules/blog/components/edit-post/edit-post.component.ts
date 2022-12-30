@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { RouteUrls } from 'src/app/core/models/enums/route-urls.enum';
-import { PostI } from 'src/app/core/models/post.interface';
+import { PostI } from 'src/app/modules/blog/models/post.interface';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({

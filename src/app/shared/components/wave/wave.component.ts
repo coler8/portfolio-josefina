@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'svg-wave',
     template: `
-    <svg class="absolute max-w-full" height="556" viewBox="0 0 450 556" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="absolute w-6/12 h-screen md:max-w-fulll" height="556" viewBox="0 0 450 556" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="277" cy="63" r="225" fill="url(#paint0_linear_25:217)"></circle>
                 <circle cx="17.9997" cy="182" r="18" fill="url(#paint1_radial_25:217)"></circle>
                 <circle cx="76.9997" cy="288" r="34" fill="url(#paint2_radial_25:217)"></circle>

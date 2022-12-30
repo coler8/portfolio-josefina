@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { inOutAnimation } from 'src/app/core/animations/enter-leave.animation';
-import { PriceI } from 'src/app/core/models/prices.interface';
+import { PriceI } from 'src/app/modules/prices/model/prices.interface';
 
 @Component({
   selector: 'app-prices',

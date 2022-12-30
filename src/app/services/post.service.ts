@@ -6,11 +6,12 @@ import {
   deleteDoc,
   doc,
   updateDoc,
+
 } from '@firebase/firestore';
-import { Firestore, collectionData, docData } from '@angular/fire/firestore';
+import { query, Firestore, orderBy, collectionData, docData } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PostI } from '../core/models/post.interface';
+import { PostI } from '../modules/blog/models/post.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,8 @@ export class PostService {
   }
 
   getAllPosts(): Observable<PostI[]> {
-    return collectionData(this.blogCollection, {
+    const queryOrderPosts = query(this.blogCollection, orderBy('createdAt', 'desc'));
+    return collectionData(queryOrderPosts, {
       idField: 'id',
     }) as Observable<PostI[]>;
   }

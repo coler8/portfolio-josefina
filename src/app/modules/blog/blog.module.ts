@@ -7,13 +7,15 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { DetailPostComponent } from './components/detail-post/detail-post.component';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SafeHtmlPipe } from './pipe/safehtml.pipe';
 
 @NgModule({
   declarations: [
     BlogComponent,
     AddPostComponent,
     EditPostComponent,
-    DetailPostComponent
+    DetailPostComponent,
+    SafeHtmlPipe
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       },
     ]),
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [RouterModule]
 

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PostI } from 'src/app/core/models/post.interface';
+import { PostI } from 'src/app/modules/blog/models/post.interface';
 
 @Component({
   selector: 'add-post',

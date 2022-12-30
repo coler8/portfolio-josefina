@@ -1,4 +1,18 @@
 <div class="container w-full pt-16 pb-16 mx-auto max-w-7xl px-8 md:px-6">
+  <div
+    class="flex items-center justify-center mt-6 gap-1"
+    *ngIf="user$ | async"
+  >
+    <button
+      class="boton-blue"
+      type="button"
+      [routerLink]="['/blog/edit-post', idPost]"
+    >
+      Editar
+    </button>
+
+    <button class="boton-rojo" (click)="deletePost(idPost)">Eliminar</button>
+  </div>
   <span class="w-full md:text-sm text-blue-500 font-bold"
     >&lt;
     <a
@@ -28,12 +42,9 @@
         alt="gallery"
         class="w-full max-h-96 object-cover object-center block"
         [src]="post.image"
-        onError
       />
 
-      <p class="py-6">
-        {{ post.content }}
-      </p>
+      <p class="py-6" [innerHTML]="post.content | safeHtml"></p>
 
       <blockquote class="border-l-4 border-blue-500 italic my-8 pl-8 md:pl-12">
         Example of blockquote - Lorem ipsum dolor sit amet, consectetur
