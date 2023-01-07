@@ -24,21 +24,21 @@
         </label>
         <label class="block mt-3">
           <span class="text-sm text-gray-700">Contraseña</span>
-          <div class="flex flex-row items-center gap-2">
+          <div class="relative">
             <input
               type="{{ type }}"
               formControlName="password"
               placeholder="Escriba contraseña..."
               name="password"
               autocomplete="off"
-              class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
+              class="w-full block rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"
             />
             <i
               [ngClass]="{
                 'fa-eye-slash': showPass,
                 'fa-eye': !showPass
               }"
-              class="fa text-xl md cursor-pointer"
+              class="absolute inset-y-0 right-0 pr-3 flex items-center fa text-xl cursor-pointer"
               (click)="showPassword()"
               aria-hidden="true"
             ></i>
