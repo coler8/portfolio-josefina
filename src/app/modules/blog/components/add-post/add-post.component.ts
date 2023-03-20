@@ -1,5 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { PostI } from 'src/app/modules/blog/models/post.interface';
 
 @Component({
@@ -7,25 +12,21 @@ import { PostI } from 'src/app/modules/blog/models/post.interface';
   templateUrl: './add-post.component.html',
 })
 export class AddPostComponent implements OnInit {
-
   @Output() save: EventEmitter<PostI> = new EventEmitter();
 
   public postForm!: FormGroup;
   public showModal: boolean = false;
-
 
   constructor(public fb: FormBuilder) {
     this.postForm = this.fb.nonNullable.group({
       title: ['', [Validators.required]],
       image: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      content: ['', [Validators.required]]
+      content: ['', [Validators.required]],
     });
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   public get fieldsError(): { [key: string]: AbstractControl } {
     return this.postForm.controls;
@@ -44,5 +45,4 @@ export class AddPostComponent implements OnInit {
   private resetForm() {
     this.postForm.reset();
   }
-
 }

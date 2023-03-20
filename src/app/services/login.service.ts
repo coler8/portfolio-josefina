@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Auth, authState, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import {
+  Auth,
+  authState,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from '@angular/fire/auth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-  constructor(
-    private auth: Auth
-  ) {
-  }
+  constructor(private auth: Auth) {}
 
   public get authState() {
     return authState(this.auth);
@@ -25,5 +28,4 @@ export class LoginService {
   public signOut() {
     return signOut(this.auth);
   }
-
 }

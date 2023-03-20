@@ -11,14 +11,12 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
   templateUrl: './login.component.html',
 })
 export class LoginComponent implements OnInit {
-
   public email: string;
   public password: string;
   public type = 'password';
   public showPass = false;
   public loginForm!: FormGroup;
   public user$: Observable<any>;
-
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,12 +25,28 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService
   ) {
     this.loginForm = this.formBuilder.nonNullable.group({
-      email: ['', [Validators.required, this.utilitiesService.emailOrNull, Validators.maxLength(50)]],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(40)]],
+      email: [
+        '',
+        [
+          Validators.required,
+          this.utilitiesService.emailOrNull,
+          Validators.maxLength(50),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(40),
+        ],
+      ],
     });
   }
 
-  get fieldsError(): any { return this.loginForm.controls; }
+  get fieldsError(): any {
+    return this.loginForm.controls;
+  }
 
   ngOnInit(): void {
     this.user$ = this.loginService.authState;
@@ -43,18 +57,22 @@ export class LoginComponent implements OnInit {
     this.type = this.showPass ? 'text' : 'password';
   }
 
-
-  public onSubmitLogin(): void {
-    this.loginService.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(() => {
+  public async onSubmitLogin(): Promise<void> {
+    try {
+      await this.loginService.loginUser(
+        this.loginForm.value.email,
+        this.loginForm.value.password
+      );
       this.router.navigate([RouteUrls.blog]);
-    }).catch((err) => {
-      const msgErrorCode = this.utilitiesService.checkErrorsValidation(err.code);
+    } catch (err: any) {
+      const msgErrorCode = this.utilitiesService.checkErrorsValidation(
+        err.code
+      );
       alert(msgErrorCode);
-    });
+    }
   }
 
   public logout(): void {
     this.loginService.signOut();
   }
-
 }

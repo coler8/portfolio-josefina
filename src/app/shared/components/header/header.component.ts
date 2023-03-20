@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { RouteUrls } from 'src/app/core/models/enums/route-urls.enum';
-import { HeaderLinkI } from 'src/app/core/models/header.interface';
+import { HeaderLinkI } from 'src/app/core/models/interfaces/header.interface';
 
 @Component({
   selector: 'app-header',
@@ -11,69 +11,62 @@ export class HeaderComponent implements OnInit {
   links: any = [
     {
       src: 'https://www.youtube.com/leifermendez',
-      name: 'Youtube'
+      name: 'Youtube',
     },
     {
       src: 'https://github.com/leifermendez',
-      name: 'Github'
+      name: 'Github',
     },
     {
       src: 'mailto:leifer33@gmail.com',
-      name: 'Contacto'
-    }
+      name: 'Contacto',
+    },
   ];
-
-
 
   public pages: HeaderLinkI[] = [
     {
       routerlink: RouteUrls.home,
-      name: 'Home'
+      name: 'Home',
     },
     {
       routerlink: RouteUrls.help,
-      name: 'Servicios'
+      name: 'Servicios',
     },
     {
       routerlink: RouteUrls.aboutme,
-      name: 'Sobre mi'
+      name: 'Sobre mi',
     },
     {
       routerlink: RouteUrls.blog,
-      name: 'Blog'
+      name: 'Blog',
     },
     {
       routerlink: RouteUrls.prices,
-      name: 'Precios'
+      name: 'Precios',
     },
     {
       routerlink: RouteUrls.contact,
-      name: 'Contacto'
+      name: 'Contacto',
     },
     {
       routerlink: RouteUrls.login,
-      name: 'Login'
+      name: 'Login',
     },
   ];
 
-  @HostListener("document:click", ['$event'])
+  @HostListener('document:click', ['$event'])
   clickedOut(e) {
-    if (e.target.id !== 'menu-button' && e.target.id !== 'svg-button' && e.target.id !== 'path-button' && e.target.id !== 'navbar-sticky') {
+    if (
+      e.target.id !== 'menu-button' &&
+      e.target.id !== 'svg-button' &&
+      e.target.id !== 'path-button' &&
+      e.target.id !== 'navbar-sticky'
+    ) {
       this.isOpen = false;
     }
   }
 
-  constructor() {
-  }
+  constructor() {}
 
-
-
-
-
-  ngOnInit(): void {
-
-
-  }
-
-
+  ngOnInit(): void {}
 }

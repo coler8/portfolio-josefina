@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output, OnDestroy } from '@angular/core';
-import { DocumentData } from '@angular/fire/firestore';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil, tap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { RouteUrls } from 'src/app/core/models/enums/route-urls.enum';
 import { PostI } from 'src/app/modules/blog/models/post.interface';
@@ -13,11 +12,10 @@ import { PostService } from 'src/app/services/post.service';
   templateUrl: './edit-post.component.html',
 })
 export class EditPostComponent implements OnInit, OnDestroy {
-
   public editPostForm!: FormGroup;
   public post$: Observable<PostI>;
   public idPost: string;
-  private stopSubscription$: Subject<void> = new Subject<void>();
+  private stopSubscription$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     private postService: PostService,
@@ -29,7 +27,7 @@ export class EditPostComponent implements OnInit, OnDestroy {
       title: ['', [Validators.required]],
       image: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      content: ['', [Validators.required]]
+      content: ['', [Validators.required]],
     });
   }
 
@@ -37,23 +35,26 @@ export class EditPostComponent implements OnInit, OnDestroy {
     this.idPost = this.activatedRoute.snapshot.params['id'];
 
     if (this.idPost) {
-      this.post$ = this.postService.getPost(this.idPost);
-      this.post$.pipe(takeUntil(this.stopSubscription$)).subscribe((post) => {
-        this.initValuesForm(post);
-      });
+      this.post$ = this.postService.getPost(this.idPost).pipe(
+        takeUntil(this.stopSubscription$),
+        tap((post) => this.initValuesForm(post))
+      );
     }
   }
 
-
-  submitEditPost() {
-    let postObj = {
+  public async submitEditPost(): Promise<void> {
+    const post = {
       id: this.idPost,
       createdAt: Date.now(),
-      ...this.editPostForm.value
+      ...this.editPostForm.value,
+    };
+    try {
+      await this.postService.updatePost(post);
+      this.router.navigate([RouteUrls.blog]);
+    } catch (error) {
+      console.error(error);
     }
-    this.postService.updatePost(postObj).then(() => { this.router.navigate([RouteUrls.blog]) });
   }
-
 
   private resetForm() {
     this.editPostForm.reset();
@@ -69,12 +70,6 @@ export class EditPostComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.stopSubscription$) {
-      this.stopSubscription$.next();
-      this.stopSubscription$.complete();
-    }
+    this.stopSubscription$.next(true);
   }
-
-
-
 }
